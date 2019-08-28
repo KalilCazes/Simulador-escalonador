@@ -3,11 +3,15 @@
 import funcoes
 
 
-def executa(matriz):
-    #inicio, fim, prioridade = []
-    processos = []
-    for i in range(int(matriz[0])):
-        fila(matriz, processos)
+def executa(n_processos, lista_processos):
+
+    tempo_atual = 0;
+    processos_prontos = []
+    processo_executando = -1
+
+    
+    for p in range(lista_processos):
+        if()
     print(processos)
 
 def fila(matriz, processos, i):

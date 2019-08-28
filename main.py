@@ -1,21 +1,28 @@
 #!/usr/bin/env python3.7
 
+from processo import Processo
 import fcfs
-import rr
-import funcoes
-""" import sjf
-import srtf
-import prioc
-import priop
-import priod """
+
+def main():
+    arq = open("entrada", "r").read()
+    entrada = arq.split('\n')
+
+    n_processos = int(entrada[0])
+    lista_inicio = entrada[1].split(" ")
+    lista_fim = entrada[2].split(" ")
+    lista_prioridade = entrada[3].split(" ")
+
+    lista_processos = []
+    for i in range(n_processos):
+        p = Processo()
+        p.inicio = lista_inicio[i]
+        p.fim = lista_fim[i]
+        p.prioridade = lista_prioridade[i]
+        lista_processos.append(p)
+
+    fcfs.executa(n_processos, lista_processos)
 
 
 
-
-arq = open("entrada", "r").read()
-matriz = arq.split('\n')
-print(matriz)
-for i in range(1,len(matriz)):
-    matriz[i] = matriz[i].split(" ")
-
-fcfs.executa(matriz)
+if __name__ == "__main__":
+    main()
