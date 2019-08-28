@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.7
 
-""" import fcfs """
+import fcfs
 import rr
 import funcoes
 """ import sjf
@@ -18,3 +18,4 @@ print(matriz)
 for i in range(1,len(matriz)):
     matriz[i] = matriz[i].split(" ")
 
+fcfs.executa(matriz)
