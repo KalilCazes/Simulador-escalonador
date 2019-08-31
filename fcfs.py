@@ -1,34 +1,38 @@
 #!/usr/bin/env python3.7
+from tarefa import print_relatorio
 
-import funcoes
 
+def executa(lista_tarefas):
 
-def executa(n_processos, lista_processos):
+    tempo_atual = 0
+    tarefas_prontas = [tarefa for tarefa in lista_tarefas if tarefa.chegada == tempo_atual]
+    tarefas_futuras = [tarefa for tarefa in lista_tarefas if tarefa.chegada > tempo_atual]
+    tarefas_terminadas = []
 
-    tempo_atual = 0;
-    processos_prontos = []
-    processo_executando = -1
+    while len(tarefas_terminadas) != len(lista_tarefas):
+        if len(tarefas_prontas) == 0:
+            tempo_atual += 1
 
-    
-    for p in range(lista_processos):
-        if()
-    print(processos)
+            for tarefa_futura in tarefas_futuras:
+                if tarefa_futura.chegada == tempo_atual:
+                    tarefas_prontas.append(tarefa_futura)
 
-def fila(matriz, processos, i):
-    processos.append({})
-    processos[i]["inicio"] = funcoes.get_inicio(matriz, i)
-    processos[i]["fim"] = funcoes.get_fim(matriz, i)
-    processos[i]["prioridade"] = funcoes.get_prioridade(matriz, i)
+        else:
+            tarefa_executando = tarefas_prontas.pop(0)
+            tarefa_executando.tempo_espera = tempo_atual - tarefa_executando.chegada
 
-    processos.sort(key=lambda processo: processo["inicio"])
+            while tarefa_executando.tempo_restante > 0:
+                tarefa_executando.tempo_restante -= 1
+                tempo_atual += 1
 
-""" def foo (matriz):
-    programasnafila = 0
-    tempoatual = 0
-    processos = []
-    while programasnafila < int(matriz[0]):
-        for i in range(int[matriz[0]]):
-            if(funcoes.get_inicio(matriz, i) == tempoatual):
-                fila(matriz, processos, i)
-                programasnafila += 1
-        tempoatual += 1 """
+                # tarefa em execução ...
+
+                for tarefa_futura in tarefas_futuras:
+                    if tarefa_futura.chegada == tempo_atual:
+                        tarefas_prontas.append(tarefa_futura)
+
+            tarefa_executando.tempo_total_execucao = tempo_atual - tarefa_executando.chegada
+            tarefas_terminadas.append(tarefa_executando)
+
+    print_relatorio(tarefas_terminadas, "First-Come, First Served")
+
