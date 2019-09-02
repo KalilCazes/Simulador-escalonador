@@ -1,5 +1,5 @@
 #!/usr/bin/env python3.7
-from tarefa import print_relatorio
+from tarefa import print_relatorio_tarefas
 
 
 def executa(lista_tarefas):
@@ -34,5 +34,5 @@ def executa(lista_tarefas):
             tarefa_executando.tempo_total_execucao = tempo_atual - tarefa_executando.chegada
             tarefas_terminadas.append(tarefa_executando)
 
-    print_relatorio(tarefas_terminadas, "First-Come, First Served")
+    print_relatorio_tarefas(lista_tarefas, "First-Come, First Served")
 
