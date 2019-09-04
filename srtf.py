@@ -7,6 +7,7 @@ def executa(lista_tarefas):
     tarefas_prontas = [tarefa for tarefa in lista_tarefas if tarefa.chegada == tempo_atual]
     tarefas_futuras = [tarefa for tarefa in lista_tarefas if tarefa.chegada > tempo_atual]
     tarefas_terminadas = []
+    total_troca_contexto = -1
 
     while len(tarefas_terminadas) != len(lista_tarefas):
         if len(tarefas_prontas) == 0:
@@ -39,6 +40,7 @@ def executa(lista_tarefas):
                         if tarefa_futura.tempo_restante < tarefa_executando.tempo_restante:
                             nova_menor_tempo_restante = True
 
+            total_troca_contexto += 1
             if tarefa_executando.tempo_restante > 0:
                 tarefa_executando.tempo_ultima_interrupcao = tempo_atual
                 tarefas_prontas.append(tarefa_executando)
@@ -47,4 +49,4 @@ def executa(lista_tarefas):
                 tarefa_executando.tempo_total_execucao = tempo_atual - tarefa_executando.chegada
                 tarefas_terminadas.append(tarefa_executando)
 
-    print_relatorio_tarefas(lista_tarefas, "Shortest Remaining Time First")
+    print_relatorio_tarefas(lista_tarefas, total_troca_contexto, "Shortest Remaining Time First")

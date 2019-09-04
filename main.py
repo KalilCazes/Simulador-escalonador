@@ -11,31 +11,42 @@ import priod
 
 
 def main():
+    print("=" * 99)
+    print("|{:<31}|{:^21}|{:^21}|{:^21}|"
+          .format("Algoritmo", "Tempo total medio", "Tempo de espera medio", "Trocas de contexto"))
+    print("=" * 99)
 
     lista_tarefas = tarefas_de_entrada()
     fcfs.executa(lista_tarefas)
+    print("." * 99)
 
     lista_tarefas = tarefas_de_entrada()
     rr.executa(lista_tarefas)
+    print("." * 99)
 
     lista_tarefas = tarefas_de_entrada()
     sjf.executa(lista_tarefas)
+    print("." * 99)
 
     lista_tarefas = tarefas_de_entrada()
     srtf.executa(lista_tarefas)
+    print("." * 99)
 
     lista_tarefas = tarefas_de_entrada()
     prioc.executa(lista_tarefas)
+    print("." * 99)
 
     lista_tarefas = tarefas_de_entrada()
     priop.executa(lista_tarefas)
+    print("." * 99)
 
     lista_tarefas = tarefas_de_entrada()
     priod.executa(lista_tarefas)
 
+    print("=" * 99)
+
 
 def tarefas_de_entrada():
-
     arq = open("entrada", "r").read()
     entrada = arq.split('\n')
     n_tarefas = int(entrada[0])
