@@ -11,38 +11,50 @@ import priod
 
 
 def main():
-    print("=" * 99)
-    print("|{:<31}|{:^21}|{:^21}|{:^21}|"
-          .format("Algoritmo", "Tempo total medio", "Tempo de espera medio", "Trocas de contexto"))
-    print("=" * 99)
+    print_header_tabela()
 
     lista_tarefas = tarefas_de_entrada()
     fcfs.executa(lista_tarefas)
-    print("." * 99)
+    print_linha_tabela()
 
     lista_tarefas = tarefas_de_entrada()
     rr.executa(lista_tarefas)
-    print("." * 99)
+    print_linha_tabela()
 
     lista_tarefas = tarefas_de_entrada()
     sjf.executa(lista_tarefas)
-    print("." * 99)
+    print_linha_tabela()
 
     lista_tarefas = tarefas_de_entrada()
     srtf.executa(lista_tarefas)
-    print("." * 99)
+    print_linha_tabela()
 
     lista_tarefas = tarefas_de_entrada()
     prioc.executa(lista_tarefas)
-    print("." * 99)
+    print_linha_tabela()
 
     lista_tarefas = tarefas_de_entrada()
     priop.executa(lista_tarefas)
-    print("." * 99)
+    print_linha_tabela()
 
     lista_tarefas = tarefas_de_entrada()
     priod.executa(lista_tarefas)
 
+    print_footer_tabela()
+
+
+def print_header_tabela():
+    print("=" * 99)
+    print("|{:^31}|{:^21}|{:^21}|{:^21}|"
+          .format("Algoritmo", "Tempo total medio", "Tempo de espera medio", "Trocas de contexto"))
+    print("=" * 99)
+
+
+def print_linha_tabela():
+    print("." * 99)
+
+
+def print_footer_tabela():
     print("=" * 99)
 
 
