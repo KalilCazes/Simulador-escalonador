@@ -36,11 +36,11 @@ def executa(lista_tarefas):
 
                 # tarefa em execução ...
 
-                checa_novas_tarefas_prontas(tarefas_futuras, tarefas_prontas, tempo_atual)
-
-                for tarefa_pronta in tarefas_prontas:
-                    if tarefa_pronta.prioridade_dinamica > tarefa_executando.prioridade_dinamica:
-                        nova_maior_prioridade = True
+                for tarefa_futura in tarefas_futuras:
+                    if tarefa_futura.chegada == tempo_atual:
+                        tarefas_prontas.append(tarefa_futura)
+                        if tarefa_futura.prioridade_dinamica > tarefa_executando.prioridade_dinamica:
+                            nova_maior_prioridade = True
 
             total_troca_contexto += 1
 
