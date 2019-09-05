@@ -10,6 +10,7 @@ class Tarefa:
 
     prioridade_dinamica = -1
 
+
 def print_relatorio_tarefas(tarefas, total_troca_contexto, nome_algoritmo):
     tempo_total_espera = 0
     tempo_total_execucao = 0
